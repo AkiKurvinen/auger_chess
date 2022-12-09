@@ -1,0 +1,101 @@
+:root{
+    --main-color:rgb(98, 0, 255);
+}
+body{
+    background-color: #111;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-size: 3em;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+*{
+    box-sizing: border-box;
+}
+.square{
+  position: relative;
+  border: solid 5px var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90vmin;
+  height: 90vmin;
+}
+/*
+.square:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+*/
+table{
+  position: absolute;
+  width: 95%;
+  height: 95%;
+  border-spacing: 5px;
+}
+table tr td{
+    border-radius: 25%;
+    overflow: visible;
+    position: relative;
+    /*
+    text-align: center;
+    vertical-align: middle;
+    */
+}
+table tr td span{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+table tr:nth-child(even) td:nth-child(odd),
+table tr:nth-child(odd) td:nth-child(even){
+    border: solid thin var(--main-color);
+}
+
+table tr:nth-child(odd) td:nth-child(odd),
+table tr:nth-child(even) td:nth-child(even){
+    background-color: var(--main-color);
+}
+
+.black{
+    color: rgb(255, 0, 255);
+}
+.white{
+    color: rgb(0, 255, 255);
+}
+table tr td:hover{
+  -webkit-animation:  change-color 2s infinite;
+  animation:  change-color 2s infinite;
+  cursor: pointer;
+}
+
+@keyframes change-color {
+  0%, 100% {
+    background-color: rgb(98, 0, 255);
+  }
+  50% {
+    background-color: rgb(162, 0, 255);
+  }
+}
+/**/
+svg, img{
+  max-height: 75%;
+}
+.black svg path{
+fill: rgb(255, 0, 255);
+  /*  stroke: rgb(255, 0, 255);*/
+}
+.white svg path{
+ /* fill: rgb(0, 255, 255);*/
+  stroke:rgb(0, 255, 255);
+}

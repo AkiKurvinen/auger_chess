@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Table</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="chess.js"></script>
+    <link rel="shortcut icon" href="horse_icon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="square">
+    <table>
+
+        <tbody>
+        <tr>
+            <td><span class="white" title="Rook (White)">♖</span></td>
+            <td><span class="white">♘</span></td>
+            <td><span class="white">♗</span></td>
+            <td><span class="white">♕</span></td>
+            <td><span class="white"><img src="png/king_w.png" alt=""></span></td>
+            <td><span class="white">♗</span></td>
+            <td><span class="white">♘</span></td>
+            <td><span class="white">♖</span></td>
+        </tr>
+        <tr>
+            <td><span class="white"><chesspiece piece="pawn"></chesspiece></td>
+            <td><span class="white">♙</span></td>
+            <td><span class="white">♙</span></td>
+            <td><span class="white">♙</span></td>
+            <td><span class="white">♙</span></td>
+            <td><span class="white">♙</span></td>
+            <td><span class="white">♙</span></td>
+            <td><span class="white">♙</span></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><span class="black">♟</span></td>
+            <td><span class="black">♟</span></td>
+            <td><span class="black">♟</span></td>
+            <td><span class="black">♟</span></td>
+            <td><span class="black">♟</span></td>
+            <td><span class="black">♟</span></td>
+            <td><span class="black">♟</span></td>
+            <td><span class="black">♟</span></td>
+        </tr>
+        <tr>
+            <td><span class="black">♜</span></td>
+            <td><span class="black">♞</span></td>
+            <td><span class="black">♝</span></td>
+            
+            <td><span class="black">♛</span></td>
+            <td><span class="black"><chesspiece piece="king"></chesspiece></span></td>
+            <!--<td><span class="black">♚</span></td> -->
+            <td><span class="black">♝</span></td>
+            <td><span class="black">♞</span></td>
+            <td><span class="black">♜</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+    <script>init()</script>
+    <script>
+        const pieces = document.querySelectorAll("chesspiece");
+        pieces.forEach(element => {
+            const piece = element.getAttribute('piece')
+                fetch(`svg/${piece}.svg`)
+                .then(response => response.text())
+                .then(svg => element.parentNode.innerHTML = svg)
+            });
+    </script>
+</body>
+</html>
